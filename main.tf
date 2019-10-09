@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "pwc-test" {
 resource "azurerm_snapshot" "pwc-test" {
 
  
-  count = "${var.count}"
+  count = "${var.count1}"
  
   name  = "test-snapshot3_${count.index}"
 
