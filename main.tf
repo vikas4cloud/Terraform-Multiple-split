@@ -10,9 +10,8 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "pwc-test" {
 
- name     = "pwc-test"
-
- location = "eastus"
+ name     = "${var.resource_group_name}"
+ location = "${var.location}"
 
 }
 
@@ -21,16 +20,16 @@ resource "azurerm_resource_group" "pwc-test" {
 resource "azurerm_snapshot" "pwc-test" {
 
  
-  count = length(var.os_disk)
+  count = length(var.source_uri)
  
   name  = "test-snapshot3_${count.index}"
 
-  location            = "eastus"
-
-  resource_group_name = "pwc-test"
+  location            = "${azurerm_resource_group.pwc-test.location}"
+  
+  resource_group_name = "${azurerm_resource_group.pwc-test.name}"
 
   create_option       = "Copy"
 
-  source_uri          =  var.os_disk[count.index]
+  source_uri          =  var.source_uri[count.index]
 
 }
