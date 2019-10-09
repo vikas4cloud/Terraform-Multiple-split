@@ -10,4 +10,4 @@ variable "source_uri" {
   type        = list(string)
   
 }
-variable "count" {}
+variable "count1" {}
