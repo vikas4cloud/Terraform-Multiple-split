@@ -13,7 +13,7 @@ stages
      stage('terraform init') {
             steps {
 		  
-		    sh "hi shan length(${source_uri})
+		    sh "hi shan length($source_uri)
                  sh "terraform init -input=false"
 		 
                
