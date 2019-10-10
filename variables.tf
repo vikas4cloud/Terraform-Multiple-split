@@ -7,7 +7,7 @@ variable "location" {}
 
 
 variable "source_uri" {
-  type = string
+  type = list()
 
   
 #default     = []
