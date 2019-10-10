@@ -8,7 +8,7 @@ variable "location" {}
 
 variable "source_uri" {
   type = string
-  default     = []
+
   
 #default     = []
 }
