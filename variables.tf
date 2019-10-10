@@ -6,7 +6,7 @@ variable "resource_group_name" {}
 variable "location" {}
 
 
-variable "source_uri" {  }
+variable "source_uri" {  type = list(string) }
 
 #variable "source_uri" {
  # type        = list(string)
