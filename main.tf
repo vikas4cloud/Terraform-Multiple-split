@@ -23,7 +23,7 @@ resource "azurerm_snapshot" "pwc-test" {
  
   #name  = "test-snapshot3_${count.index}"
 	
- name  = "test-snapshot3"
+ name  = "${it.value}"
 
 	iterator {
     on "${var.source_uri}""
