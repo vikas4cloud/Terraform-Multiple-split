@@ -23,8 +23,9 @@ resource "azurerm_snapshot" "pwc-test" {
  
   name  = "test-snapshot3_${count.index}"
  
-  	 for_each   = var.source_uri 
-	 source_uri = "${each.value}" 
+for_each   = var.source_uri 
+	
+source_uri = "${each.value}" 
 
   location            = "${azurerm_resource_group.pwc-test.location}"
   
