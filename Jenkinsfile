@@ -42,3 +42,4 @@ sh "terraform plan  -input=false -var subscription_id=${AZURE_SUBSCRIPTION_ID} -
     
 }
 }
+
