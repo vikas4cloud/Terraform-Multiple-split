@@ -13,7 +13,8 @@ stages
      stage('terraform init') {
             steps {
 		  
-		   
+		   sh "mails=$(echo $source_uri | tr ";" "\n")"
+		    echo '$mails"
                  sh "terraform init -input=false"
 		 
                
