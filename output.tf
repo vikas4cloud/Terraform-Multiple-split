@@ -1,3 +1,3 @@
-output "source_uri" {
-    value = "${source_uri[0]}"
-}
+#output "source_uri" {
+ #   value = "${source_uri[0]}"
+#}
