@@ -9,7 +9,7 @@ variable "location" {}
 variable "source_uri" {
   type = list(string)
   
-default     = []
+#default     = []
 }
 #variable "source_uri" { type = "list" }
 
