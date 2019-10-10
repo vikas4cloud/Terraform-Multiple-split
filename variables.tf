@@ -7,7 +7,7 @@ variable "location" {}
 
 
 variable "source_uri" {
-  type = list(string)
+  #type = list(string)
 }
 #variable "source_uri" { type = "list" }
 
