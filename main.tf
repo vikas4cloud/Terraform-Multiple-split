@@ -34,3 +34,4 @@ resource "azurerm_snapshot" "pwc-test" {
   source_uri          =  "${var.source_uri}"
 }
 
+
