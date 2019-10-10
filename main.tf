@@ -23,9 +23,9 @@ resource "azurerm_snapshot" "pwc-test" {
  
   #name  = "test-snapshot3_${count.index}"
  
-   count = "2"
+   #count = "2"
  
-      key   = "${element(split(",", var.source_uri), count.index)}"
+      source_uri   = "${element(split(",", var.source_uri), 1)}"
 
   location            = "${azurerm_resource_group.pwc-test.location}"
   
