@@ -19,13 +19,17 @@ resource "azurerm_resource_group" "pwc-test" {
 
 resource "azurerm_snapshot" "pwc-test" {
 
-count = length(var.source_uri)
+#count = length(var.source_uri)
  
-  name  = "test-snapshot3_${count.index}"
- 
+  #name  = "test-snapshot3_${count.index}"
+ name  = "test-snapshot3
 #for_each   = var.source_uri 
 	
 #source_uri = "${each.value}" 
+	iterator {
+    on "${var.source_uri}""
+  }
+source_uri          =  "${it.value}" 
 
   location            = "${azurerm_resource_group.pwc-test.location}"
   
@@ -33,7 +37,7 @@ count = length(var.source_uri)
 
   create_option       = "Copy"
 
- source_uri          =  var.source_uri[count.index]
+ #source_uri          =  var.source_uri[count.index]
 # source_uri          =  var.key
 
  
