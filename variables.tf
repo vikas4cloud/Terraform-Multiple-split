@@ -7,8 +7,8 @@ variable "location" {}
 
 
 variable "source_uri" {
-  #type = list(string)
-  type = string
+  type = list(string)
+  #type = string
 
 }
 #variable "source_uri" { type = "list" }
