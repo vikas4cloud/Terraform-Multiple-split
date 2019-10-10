@@ -22,10 +22,9 @@ resource "azurerm_snapshot" "pwc-test" {
 #count = length(var.source_uri)
  
   #name  = "test-snapshot3_${count.index}"
- name  = "test-snapshot3
-#for_each   = var.source_uri 
 	
-#source_uri = "${each.value}" 
+ name  = "test-snapshot3"
+
 	iterator {
     on "${var.source_uri}""
   }
