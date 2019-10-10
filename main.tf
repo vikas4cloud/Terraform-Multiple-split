@@ -25,7 +25,7 @@ resource "azurerm_snapshot" "pwc-test" {
  
    #count = "2"
  
-      source_uri   = "${element(split(",", var.source_uri), 1)}"
+      key   = "${element(split(",", var.source_uri), 1)}"
 
   location            = "${azurerm_resource_group.pwc-test.location}"
   
@@ -33,7 +33,8 @@ resource "azurerm_snapshot" "pwc-test" {
 
   create_option       = "Copy"
 
-  source_uri          =  var.source_uri[count.index]
+  #source_uri          =  var.source_uri[count.index]
+ source_uri          =  var.key
 
  
 }
