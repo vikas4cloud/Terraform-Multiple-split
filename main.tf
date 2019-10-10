@@ -19,9 +19,13 @@ resource "azurerm_resource_group" "pwc-test" {
 
 resource "azurerm_snapshot" "pwc-test" {
 
-count = length(var.source_uri)
+#count = length(var.source_uri)
  
-  name  = "test-snapshot3_${count.index}"
+  #name  = "test-snapshot3_${count.index}"
+ 
+   count = "2"
+ 
+      key   = "${element(split(",", var.source_uri), count.index)}"
 
   location            = "${azurerm_resource_group.pwc-test.location}"
   
