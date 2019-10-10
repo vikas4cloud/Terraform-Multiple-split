@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "pwc-test" {
 resource "azurerm_snapshot" "pwc-test" {
 
  
-  count = length(var.source_uri)
+  #count = length(var.source_uri)
  
   name  = "test-snapshot3_${count.index}"
 
@@ -31,7 +31,7 @@ resource "azurerm_snapshot" "pwc-test" {
 
   create_option       = "Copy"
 
-  source_uri          =  var.source_uri[count.index]
+  source_uri          =  "${var.source_uri}"[count.index]
 
 }
 
