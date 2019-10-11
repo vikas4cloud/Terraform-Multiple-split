@@ -27,7 +27,7 @@ stages
 		    {
 		     wrap([$class: 'MaskPasswordsBuildWrapper']) {
         
-		     sh "terraform plan  -input=false -var subscription_id=${AZURE_SUBSCRIPTION_ID} -var tenant_id=${AZURE_TENANT_ID} -var client_id=${AZURE_CLIENT_ID} -var  client_secret=${AZURE_CLIENT_SECRET} -var source_uri=[${source_uri}] -var resource_group_name=${resource_group_name} -var location=${location} "  
+		     sh "terraform plan  -input=false -var subscription_id=${AZURE_SUBSCRIPTION_ID} -var tenant_id=${AZURE_TENANT_ID} -var client_id=${AZURE_CLIENT_ID} -var  client_secret=${AZURE_CLIENT_SECRET} -var 'source_uri=[${source_uri}]' -var resource_group_name=${resource_group_name} -var location=${location} "  
     			
 		     }
 	
@@ -43,7 +43,7 @@ stages
 		 
 		 wrap([$class: 'MaskPasswordsBuildWrapper']) {
 			 
-                 sh "terraform apply -input=false -auto-approve  -var subscription_id=${AZURE_SUBSCRIPTION_ID} -var tenant_id=${AZURE_TENANT_ID} -var client_id=${AZURE_CLIENT_ID} -var  client_secret=${AZURE_CLIENT_SECRET} -var source_uri=[${source_uri}] -var resource_group_name=${resource_group_name} -var location=${location} "
+                 sh "terraform apply -input=false -auto-approve  -var subscription_id=${AZURE_SUBSCRIPTION_ID} -var tenant_id=${AZURE_TENANT_ID} -var client_id=${AZURE_CLIENT_ID} -var  client_secret=${AZURE_CLIENT_SECRET} -var 'source_uri=[${source_uri}]' -var resource_group_name=${resource_group_name} -var location=${location} "
 		 	}
            	}
        	     }	
