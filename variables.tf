@@ -8,4 +8,3 @@ variable "source_uri" {
   type = list(string)
 }
 
-
