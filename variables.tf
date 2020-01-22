@@ -1,10 +1,14 @@
-variable "subscription_id" {}
-variable "tenant_id" {}
-variable "client_id" {}
-variable "client_secret" {}
-variable "resource_group_name" {}
-variable "location" {}
-variable "source_uri" {
-  type = list(string)
+
+locals {
+  name_suffix = "${random_pet.suffix.id}"
+}
+
+resource "random_pet" "suffix" {
+  length = 2
+}
+
+provider "google" {
+  region = "us-central1"
+  zone   = "us-central1-c"
 }
 
