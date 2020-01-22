@@ -1,23 +1,19 @@
-provider "azurerm" {
-  subscription_id = "${var.subscription_id}"
-  tenant_id       = "${var.tenant_id}"
-  client_id       =  "${var.client_id}"
-  client_secret   =  "${var.client_secret}"
- }
+resource "google_compute_firewall" "default" {
+  name    = "test-firewall-${local.name_suffix}"
+  network = google_compute_network.default.name
 
-resource "azurerm_resource_group" "pwc-test" {
-  name     = "${var.resource_group_name}"
-  location = "${var.location}"
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "8080", "1000-2000"]
+  }
+
+  source_tags = ["web"]
 }
 
-
-resource "azurerm_snapshot" "pwc-test"  { 
-  count = length(var.source_uri)
-  name  = "VM-Snapshot-${count.index}"
-  location = "${azurerm_resource_group.pwc-test.location}"
-  resource_group_name = "${azurerm_resource_group.pwc-test.name}"
-  create_option = "Copy"
-  source_uri =  var.source_uri[count.index]
+resource "google_compute_network" "default" {
+  name = "test-network-${local.name_suffix}"
 }
-
-
